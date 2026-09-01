@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshmeekanta H | Full Stack Developer</title>
+  <meta name="description" content="Full Stack Developer with 3+ years experience building scalable web applications using Java Spring Boot, Microservices, and Angular." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              indigo: '#6366f1',
+              cyan: '#06b6d4',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html.dark body {
+      background-color: #0d1322;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(79, 70, 229, 0.08) 0px, transparent 50%);
+      color: #e2e8f0;
+    }
+
+    html:not(.dark) body {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(241, 245, 249, 0.5) 0px, transparent 50%);
+      color: #1e293b;
+    }
+
+    .glass-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    html.dark .glass-card {
+      background: rgba(26, 35, 58, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html.dark .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35), 0 0 20px 0 rgba(99, 102, 241, 0.15);
+    }
+
+    html:not(.dark) .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+    html:not(.dark) .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.12), 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    html.dark .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    html:not(.dark) .gradient-text {
+      background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-brand {
+      background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: subtle-float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen transition-colors duration-300">
+
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0d1322]/80 dark:bg-[#0d1322]/80 bg-white/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700/40 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="text-base font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+        <span>LAKSHMEEKANTA</span><span class="text-cyan-500 dark:text-cyan-400">.H</span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-xs uppercase font-semibold tracking-wider text-slate-600 dark:text-slate-400">
+        <a href="#about" class="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white border border-slate-300 dark:border-slate-700 transition-all" aria-label="Toggle Theme">
+          <i id="theme-icon-sun" data-lucide="sun" class="w-4 h-4 hidden"></i>
+          <i id="theme-icon-moon" data-lucide="moon" class="w-4 h-4 hidden"></i>
+        </button>
+
+        <a href="./resume.pdf" download="Lakshmeekanta_Resume.pdf" class="inline-flex items-center space-x-2 px-4 py-2 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-md shadow-indigo-500/20">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pt-24 space-y-28 pb-20">
+    
+    <section id="hero" class="min-h-[80vh] flex flex-col justify-center pt-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping"></span>
+            <span>Java • Spring Boot • Angular • Microservices</span>
+          </div>
+
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight gradient-text">
+              Lakshmeekanta H
+            </h1>
+            <p class="text-lg sm:text-xl font-semibold gradient-brand">
+              Full Stack Developer & Onsite Consultant
+            </p>
+          </div>
+
+          <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-xl">
+            Building enterprise-grade banking and e-commerce ecosystems. Experienced in high-volume microservices architecture, cross-platform banking UI integrations, and end-to-end client consultation.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/20 inline-flex items-center space-x-2">
+              <span>Explore Projects</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            
+            <a href="./resume.pdf" download="Lakshmeekanta_Resume.pdf" class="px-6 py-3 rounded-xl glass-card text-slate-800 dark:text-slate-200 font-semibold text-sm hover:border-indigo-500/50 transition-all inline-flex items-center space-x-2">
+              <i data-lucide="file-down" class="w-4 h-4 text-indigo-500 dark:text-cyan-400"></i>
+              <span>Download CV</span>
+            </a>
+
+            <a href="#contact" class="px-6 py-3 rounded-xl glass-card text-slate-800 dark:text-slate-200 font-semibold text-sm transition-all">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-6 pt-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <a href="mailto:lakshmeekanta9611@gmail.com" class="hover:text-indigo-600 dark:hover:text-cyan-400 flex items-center gap-2 transition-colors">
+              <i data-lucide="mail" class="w-4 h-4 text-indigo-500 dark:text-indigo-400"></i>
+              <span>lakshmeekanta9611@gmail.com</span>
+            </a>
+            <span class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-cyan-500 dark:text-cyan-400"></i>
+              <span>+91 8861222334</span>
+            </span>
+            <span class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-indigo-500 dark:text-indigo-400"></i>
+              <span>Bengaluru, India</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="glass-card p-6 rounded-2xl w-full max-w-md shadow-2xl relative animate-float">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/50 pb-3 mb-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              </div>
+              <span class="text-cyan-600 dark:text-cyan-400 font-semibold">System Architecture</span>
+            </div>
+            
+            <div class="space-y-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/70 text-indigo-600 dark:text-indigo-300 flex justify-between items-center">
+                <span class="font-semibold">Client UI</span>
+                <span class="text-slate-500 dark:text-slate-400 text-[11px]">Angular • Capacitor</span>
+              </div>
+              <div class="text-center text-cyan-600 dark:text-cyan-400/80 text-[11px] font-sans">↓ Secure REST & OBDX APIs</div>
+              <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/70 text-cyan-600 dark:text-cyan-300 flex justify-between items-center">
+                <span class="font-semibold">Microservices Core</span>
+                <span class="text-slate-500 dark:text-slate-400 text-[11px]">Spring Boot • MVC • AOP</span>
+              </div>
+              <div class="text-center text-cyan-600 dark:text-cyan-400/80 text-[11px] font-sans">↓ Asynchronous Event Pipeline</div>
+              <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/70 text-indigo-600 dark:text-indigo-300 flex justify-between items-center">
+                <span class="font-semibold">Persistence & Cache</span>
+                <span class="text-slate-500 dark:text-slate-400 text-[11px]">Kafka • Redis • Oracle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="space-y-8">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Profile Breakdown</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Experience & Value</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card p-5 rounded-xl text-center space-y-1">
+          <div class="text-3xl font-extrabold text-cyan-500 dark:text-cyan-400">3+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Years Experience</div>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center space-y-1">
+          <div class="text-3xl font-extrabold text-indigo-500 dark:text-indigo-400">40%</div>
+          <div class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Latency Reduction</div>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center space-y-1">
+          <div class="text-3xl font-extrabold text-cyan-500 dark:text-cyan-400">99.9%</div>
+          <div class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Target Uptime</div>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-center space-y-1">
+          <div class="text-3xl font-extrabold text-indigo-500 dark:text-indigo-400">Onsite</div>
+          <div class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Client Engagement (Tanzania)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="space-y-8">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Competencies</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Technical Stack</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+              <i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Backend Engineering</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Java</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Spring Boot</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Spring MVC</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Hibernate JPA</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Microservices</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">RESTful APIs</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">AOP Logging</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+              <i data-lucide="layout" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Frontend & Mobile</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Angular</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">TypeScript</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">RxJS</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Capacitor</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Angular Material</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">HTML5 / CSS3</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+              <i data-lucide="database" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Data & Streaming</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Apache Kafka</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Redis Cache</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Oracle 11g</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">MySQL</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Enterprise Domain</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Oracle OBDX</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Banking UI Integration</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">UAT/SIT Coordination</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Scrum Agile</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">AI Productivity</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">GitHub Copilot</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Claude</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Google Gemini</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">ChatGPT</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Environment & Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Git</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Swagger</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Apache Tomcat</span>
+            <span class="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300">Wildfly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="space-y-8">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Career Pathway</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Professional Experience</h2>
+      </div>
+
+      <div class="relative border-l-2 border-indigo-500/30 pl-6 sm:pl-8 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 dark:bg-cyan-400 ring-4 ring-[#0d1322] dark:ring-[#0d1322] ring-white"></div>
+          
+          <div class="glass-card p-6 rounded-2xl space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-700/40 pb-3">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Java Full Stack Developer</h3>
+                <p class="text-cyan-600 dark:text-cyan-400 font-semibold text-sm">JMR Infotech</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 font-mono text-xs">
+                May 2023 – Present
+              </span>
+            </div>
+
+            <div class="inline-block px-3 py-1 rounded bg-slate-100 dark:bg-slate-900/90 text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+              📍 Onsite Consultant – Tanzania (November 2025 – May 2026)
+            </div>
+
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Client Engagement:</strong> Primary technical contact onsite at NMB, aligning client goals with offshore sprint deliverables.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Testing Support:</strong> Resolved SIT and UAT technical queries swiftly to enable seamless delivery.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Latency & Performance:</strong> Reduced application response times by 40% via Redis caching.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5"></i>
+                <span><strong>Delivery Efficiency:</strong> Accelerated feature rollout by 25% through standardized internal frameworks.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="space-y-8">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Case Studies</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Featured Projects</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono px-3 py-1 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/30">Enterprise Banking</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">Jan 2025 – Present</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">NMB - Banking UI Integration</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Unified cross-platform web and mobile banking solution built with Angular and Capacitor, integrated directly with Oracle Banking Digital Experience (OBDX) backend engines.
+            </p>
+            <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+              <p>• Transformed Figma designs into responsive components with dynamic theming.</p>
+              <p>• Connected mission-critical financial APIs with rigorous performance standards.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-700/50">
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Angular</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Capacitor</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Oracle OBDX</span>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono px-3 py-1 rounded bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/30">E-Commerce Ecosystem</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">15 Months Duration</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">LivEzy Platform</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              Scalable multi-service e-commerce ecosystem built to handle heavy transaction volumes with low latency.
+            </p>
+            <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+              <p>• Integrated Apache Kafka for event-driven asynchronous microservices.</p>
+              <p>• Increased data retrieval speed by 60% through structured Redis caching.</p>
+              <p>• Configured centralized logging via Spring AOP and Swagger API documentation.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-700/50">
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Spring Boot</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Microservices</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Kafka</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Redis</span>
+            <span class="px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">Angular</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="space-y-6">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Academics</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Education</h2>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl max-w-xl">
+        <div class="flex items-center gap-4">
+          <div class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Bachelor of Engineering (B.E.)</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Poojya Doddappa Appa College of Engineering</p>
+            <p class="text-xs font-mono text-cyan-600 dark:text-cyan-400 mt-1">CGPA: 8.14 / 10.0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="space-y-8">
+      <div>
+        <span class="text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest">Connect</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1">Get In Touch</h2>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-start">
+        <div class="md:col-span-5 space-y-6">
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+            Available for discussions regarding Java Spring Boot microservices, Angular UI architectures, and full-stack enterprise solutions.
+          </p>
+          
+          <div class="space-y-4 text-sm font-medium">
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i data-lucide="mail" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"></i>
+              <span>lakshmeekanta9611@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i data-lucide="phone" class="w-5 h-5 text-cyan-500 dark:text-cyan-400"></i>
+              <span>+91 8861222334</span>
+            </div>
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"></i>
+              <span>Bengaluru, Karnataka, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-7">
+          <form name="contact" method="POST" data-netlify="true" class="glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+            <input type="hidden" name="form-name" value="contact" />
+            <div>
+              <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Your Name</label>
+              <input type="text" name="name" required class="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700/80 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Recruiter or Engineering Manager" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+              <input type="email" name="email" required class="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700/80 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="name@company.com" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
+              <textarea name="message" rows="4" required class="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700/80 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Let's discuss an upcoming opportunity..."></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/20">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+    <p>© 2026 Lakshmeekanta H. All rights reserved.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
+
+    function syncIcons(isDark) {
+      if (isDark) {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme ? savedTheme === 'dark' : (savedTheme === null ? true : systemPrefersDark);
+
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    syncIcons(isDark);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentlyDark = document.documentElement.classList.contains('dark');
+      if (currentlyDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        syncIcons(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        syncIcons(true);
+      }
+    });
+  </script>
+</body>
+</html>
